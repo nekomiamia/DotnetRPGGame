@@ -1,17 +1,14 @@
-using System;
 using System.Drawing;
 using DotnetRPGGame.Weapon;
 
 namespace DotnetRPGGame.Player
 {
-    public class Hero : NPC
+    public class Monster : NPC
     {
         public override double Hurt(NPC npc)
         {
-            npc = (Monster) npc;
+            npc = (Hero) npc;
             return base.Hurt(npc);
         }
-
-       
     }
 }

@@ -52,12 +52,20 @@
         <Compile Include="Form1.Designer.cs">
             <DependentUpon>Form1.cs</DependentUpon>
         </Compile>
+        <Compile Include="Player\FireDragon.cs" />
+        <Compile Include="Player\GunDragon.cs" />
         <Compile Include="Player\Hero.cs" />
+        <Compile Include="Player\Monster.cs" />
+        <Compile Include="Player\NPC.cs" />
         <Compile Include="Player\SeaDoge.cs" />
+        <Compile Include="Player\SleepDoge.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Weapon\DragonFire.cs" />
+        <Compile Include="Weapon\DragonGun.cs" />
+        <Compile Include="Weapon\HolyPillow.cs" />
         <Compile Include="Weapon\HolySword.cs" />
-        <Compile Include="Weapon\Weapon.cs" />
+        <Compile Include="Weapon\Weapons.cs" />
         <Compile Include="Weapon\WeaponTypes.cs" />
         <EmbeddedResource Include="Form1.resx">
           <DependentUpon>Form1.cs</DependentUpon>

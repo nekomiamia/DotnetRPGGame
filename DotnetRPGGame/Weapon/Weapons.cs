@@ -1,38 +1,39 @@
 namespace DotnetRPGGame.Weapon
 {
-    public class Weapon
+    public class Weapons
     {
         private WeaponTypes weaponType;
         private double weaponAtk;
         private double weaponAc;
-        private double weaponHP;
         private double lucky;
+        private string weaponName;
 
-        protected WeaponTypes WeaponType
+        public string WeaponName
+        {
+            get => weaponName;
+            set => weaponName = value;
+        }
+
+        public WeaponTypes WeaponType
         {
             get => weaponType;
             set => weaponType = value;
         }
 
-        protected double WeaponAtk
+        public double WeaponAtk
         {
             get => weaponAtk;
             set => weaponAtk = value;
         }
 
-        protected double WeaponAc
+        public double WeaponAc
         {
             get => weaponAc;
             set => weaponAc = value;
         }
 
-        protected double WeaponHp
-        {
-            get => weaponHP;
-            set => weaponHP = value;
-        }
-
-        protected double Lucky
+  
+        public double Lucky
         {
             get => lucky;
             set => lucky = value;

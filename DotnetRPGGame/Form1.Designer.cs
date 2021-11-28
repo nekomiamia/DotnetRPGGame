@@ -1,4 +1,7 @@
-﻿namespace DotnetRPGGame
+﻿using System.Collections.Generic;
+using DotnetRPGGame.Player;
+
+namespace DotnetRPGGame
 {
   partial class Form1
   {
@@ -44,18 +47,31 @@
       this.panel3 = new System.Windows.Forms.Panel();
       this.monsterOnePic = new System.Windows.Forms.PictureBox();
       this.monsterTwoNamelbl = new System.Windows.Forms.Label();
-      this.monsterHPlbl = new System.Windows.Forms.Label();
+      this.monsterTwoHPlbl = new System.Windows.Forms.Label();
       this.label10 = new System.Windows.Forms.Label();
       this.panel4 = new System.Windows.Forms.Panel();
       this.monsterTwoPic = new System.Windows.Forms.PictureBox();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.panel5 = new System.Windows.Forms.Panel();
+      this.whoNowRoundActinglbl = new System.Windows.Forms.Label();
       this.skillOnebtn = new System.Windows.Forms.Button();
       this.roundNumlbl = new System.Windows.Forms.Label();
-      this.label3 = new System.Windows.Forms.Label();
-      this.panel6 = new System.Windows.Forms.Panel();
-      this.panel7 = new System.Windows.Forms.Panel();
+      this.countDownlbl = new System.Windows.Forms.Label();
+      this.InforPanel = new System.Windows.Forms.Panel();
+      this.damageTextlbl = new System.Windows.Forms.Label();
+      this.inforSpeed = new System.Windows.Forms.Label();
+      this.inforLucky = new System.Windows.Forms.Label();
+      this.inforWeapon = new System.Windows.Forms.Label();
+      this.inforHP = new System.Windows.Forms.Label();
+      this.inforAc = new System.Windows.Forms.Label();
+      this.inforAtk = new System.Windows.Forms.Label();
+      this.inforName = new System.Windows.Forms.Label();
+      this.selectPanel = new System.Windows.Forms.Panel();
+      this.selectTwobtn = new System.Windows.Forms.Button();
+      this.selectOnebtn = new System.Windows.Forms.Button();
+      this.skillName = new System.Windows.Forms.Label();
+      this.countDownTimer = new System.Timers.Timer();
       this.panel1.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize) (this.heroOnePic)).BeginInit();
       this.panel2.SuspendLayout();
@@ -65,6 +81,9 @@
       this.panel4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize) (this.monsterTwoPic)).BeginInit();
       this.panel5.SuspendLayout();
+      this.InforPanel.SuspendLayout();
+      this.selectPanel.SuspendLayout();
+      ((System.ComponentModel.ISupportInitialize) (this.countDownTimer)).BeginInit();
       this.SuspendLayout();
       // 
       // panel1
@@ -84,6 +103,7 @@
       this.heroOnePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
       this.heroOnePic.TabIndex = 2;
       this.heroOnePic.TabStop = false;
+      this.heroOnePic.MouseEnter += new System.EventHandler(this.heroOnePic_MouseEnter);
       // 
       // lable1
       // 
@@ -154,6 +174,7 @@
       this.heroTwoPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
       this.heroTwoPic.TabIndex = 3;
       this.heroTwoPic.TabStop = false;
+      this.heroTwoPic.MouseEnter += new System.EventHandler(this.heroOnePic_MouseEnter);
       // 
       // monsterOneNamelbl
       // 
@@ -198,6 +219,7 @@
       this.monsterOnePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
       this.monsterOnePic.TabIndex = 2;
       this.monsterOnePic.TabStop = false;
+      this.monsterOnePic.MouseEnter += new System.EventHandler(this.heroOnePic_MouseEnter);
       // 
       // monsterTwoNamelbl
       // 
@@ -207,14 +229,14 @@
       this.monsterTwoNamelbl.TabIndex = 21;
       this.monsterTwoNamelbl.Text = "狗狗";
       // 
-      // monsterHPlbl
+      // monsterTwoHPlbl
       // 
-      this.monsterHPlbl.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (128)))));
-      this.monsterHPlbl.Location = new System.Drawing.Point(576, 275);
-      this.monsterHPlbl.Margin = new System.Windows.Forms.Padding(0);
-      this.monsterHPlbl.Name = "monsterHPlbl";
-      this.monsterHPlbl.Size = new System.Drawing.Size(173, 12);
-      this.monsterHPlbl.TabIndex = 20;
+      this.monsterTwoHPlbl.BackColor = System.Drawing.Color.FromArgb(((int) (((byte) (128)))), ((int) (((byte) (255)))), ((int) (((byte) (128)))));
+      this.monsterTwoHPlbl.Location = new System.Drawing.Point(576, 275);
+      this.monsterTwoHPlbl.Margin = new System.Windows.Forms.Padding(0);
+      this.monsterTwoHPlbl.Name = "monsterTwoHPlbl";
+      this.monsterTwoHPlbl.Size = new System.Drawing.Size(173, 12);
+      this.monsterTwoHPlbl.TabIndex = 20;
       // 
       // label10
       // 
@@ -242,6 +264,7 @@
       this.monsterTwoPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
       this.monsterTwoPic.TabIndex = 4;
       this.monsterTwoPic.TabStop = false;
+      this.monsterTwoPic.MouseEnter += new System.EventHandler(this.heroOnePic_MouseEnter);
       // 
       // label1
       // 
@@ -266,12 +289,22 @@
       // panel5
       // 
       this.panel5.BackColor = System.Drawing.Color.MediumTurquoise;
+      this.panel5.Controls.Add(this.whoNowRoundActinglbl);
       this.panel5.Controls.Add(this.skillOnebtn);
       this.panel5.Controls.Add(this.roundNumlbl);
       this.panel5.Location = new System.Drawing.Point(5, 428);
       this.panel5.Name = "panel5";
       this.panel5.Size = new System.Drawing.Size(776, 196);
       this.panel5.TabIndex = 24;
+      // 
+      // whoNowRoundActinglbl
+      // 
+      this.whoNowRoundActinglbl.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.whoNowRoundActinglbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+      this.whoNowRoundActinglbl.Location = new System.Drawing.Point(168, 9);
+      this.whoNowRoundActinglbl.Name = "whoNowRoundActinglbl";
+      this.whoNowRoundActinglbl.Size = new System.Drawing.Size(437, 35);
+      this.whoNowRoundActinglbl.TabIndex = 2;
       // 
       // skillOnebtn
       // 
@@ -284,44 +317,173 @@
       this.skillOnebtn.TabIndex = 1;
       this.skillOnebtn.Text = "普攻";
       this.skillOnebtn.UseVisualStyleBackColor = false;
+      this.skillOnebtn.Click += new System.EventHandler(this.skillOnebtn_Click);
       // 
       // roundNumlbl
       // 
       this.roundNumlbl.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
-      this.roundNumlbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.roundNumlbl.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
       this.roundNumlbl.Location = new System.Drawing.Point(7, 9);
       this.roundNumlbl.Name = "roundNumlbl";
       this.roundNumlbl.Size = new System.Drawing.Size(120, 35);
       this.roundNumlbl.TabIndex = 0;
-      this.roundNumlbl.Text = "第99回合";
       // 
-      // label3
+      // countDownlbl
       // 
-      this.label3.BackColor = System.Drawing.Color.Turquoise;
-      this.label3.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
-      this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-      this.label3.Location = new System.Drawing.Point(298, 9);
-      this.label3.Name = "label3";
-      this.label3.Size = new System.Drawing.Size(154, 44);
-      this.label3.TabIndex = 25;
-      this.label3.Text = "x";
-      this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+      this.countDownlbl.BackColor = System.Drawing.Color.Turquoise;
+      this.countDownlbl.Font = new System.Drawing.Font("宋体", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.countDownlbl.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.countDownlbl.Location = new System.Drawing.Point(298, 9);
+      this.countDownlbl.Name = "countDownlbl";
+      this.countDownlbl.Size = new System.Drawing.Size(154, 44);
+      this.countDownlbl.TabIndex = 25;
+      this.countDownlbl.Text = "x";
+      this.countDownlbl.TextAlign = System.Drawing.ContentAlignment.TopCenter;
       // 
-      // panel6
+      // InforPanel
       // 
-      this.panel6.BackColor = System.Drawing.Color.MediumTurquoise;
-      this.panel6.Location = new System.Drawing.Point(787, 12);
-      this.panel6.Name = "panel6";
-      this.panel6.Size = new System.Drawing.Size(344, 409);
-      this.panel6.TabIndex = 26;
+      this.InforPanel.BackColor = System.Drawing.Color.MediumTurquoise;
+      this.InforPanel.Controls.Add(this.damageTextlbl);
+      this.InforPanel.Controls.Add(this.inforSpeed);
+      this.InforPanel.Controls.Add(this.inforLucky);
+      this.InforPanel.Controls.Add(this.inforWeapon);
+      this.InforPanel.Controls.Add(this.inforHP);
+      this.InforPanel.Controls.Add(this.inforAc);
+      this.InforPanel.Controls.Add(this.inforAtk);
+      this.InforPanel.Controls.Add(this.inforName);
+      this.InforPanel.Location = new System.Drawing.Point(787, 12);
+      this.InforPanel.Name = "InforPanel";
+      this.InforPanel.Size = new System.Drawing.Size(344, 409);
+      this.InforPanel.TabIndex = 26;
       // 
-      // panel7
+      // damageTextlbl
       // 
-      this.panel7.BackColor = System.Drawing.Color.MediumAquamarine;
-      this.panel7.Location = new System.Drawing.Point(787, 428);
-      this.panel7.Name = "panel7";
-      this.panel7.Size = new System.Drawing.Size(341, 196);
-      this.panel7.TabIndex = 27;
+      this.damageTextlbl.BackColor = System.Drawing.Color.LightCyan;
+      this.damageTextlbl.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.damageTextlbl.Location = new System.Drawing.Point(7, 348);
+      this.damageTextlbl.Name = "damageTextlbl";
+      this.damageTextlbl.Size = new System.Drawing.Size(332, 54);
+      this.damageTextlbl.TabIndex = 7;
+      this.damageTextlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+      // 
+      // inforSpeed
+      // 
+      this.inforSpeed.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.inforSpeed.Location = new System.Drawing.Point(15, 320);
+      this.inforSpeed.Name = "inforSpeed";
+      this.inforSpeed.Size = new System.Drawing.Size(309, 28);
+      this.inforSpeed.TabIndex = 6;
+      this.inforSpeed.Text = "速度：";
+      // 
+      // inforLucky
+      // 
+      this.inforLucky.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.inforLucky.Location = new System.Drawing.Point(15, 270);
+      this.inforLucky.Name = "inforLucky";
+      this.inforLucky.Size = new System.Drawing.Size(309, 28);
+      this.inforLucky.TabIndex = 5;
+      this.inforLucky.Text = "暴击率：";
+      // 
+      // inforWeapon
+      // 
+      this.inforWeapon.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.inforWeapon.Location = new System.Drawing.Point(15, 70);
+      this.inforWeapon.Name = "inforWeapon";
+      this.inforWeapon.Size = new System.Drawing.Size(309, 28);
+      this.inforWeapon.TabIndex = 4;
+      this.inforWeapon.Text = "武器：";
+      // 
+      // inforHP
+      // 
+      this.inforHP.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.inforHP.Location = new System.Drawing.Point(15, 220);
+      this.inforHP.Name = "inforHP";
+      this.inforHP.Size = new System.Drawing.Size(309, 28);
+      this.inforHP.TabIndex = 3;
+      this.inforHP.Text = "生命值：";
+      this.inforHP.Click += new System.EventHandler(this.inforHP_Click);
+      // 
+      // inforAc
+      // 
+      this.inforAc.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.inforAc.Location = new System.Drawing.Point(15, 170);
+      this.inforAc.Name = "inforAc";
+      this.inforAc.Size = new System.Drawing.Size(309, 28);
+      this.inforAc.TabIndex = 2;
+      this.inforAc.Text = "护甲值：";
+      // 
+      // inforAtk
+      // 
+      this.inforAtk.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.inforAtk.Location = new System.Drawing.Point(15, 120);
+      this.inforAtk.Name = "inforAtk";
+      this.inforAtk.Size = new System.Drawing.Size(309, 28);
+      this.inforAtk.TabIndex = 1;
+      this.inforAtk.Text = "攻击力：";
+      // 
+      // inforName
+      // 
+      this.inforName.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.inforName.Location = new System.Drawing.Point(15, 20);
+      this.inforName.Name = "inforName";
+      this.inforName.Size = new System.Drawing.Size(309, 28);
+      this.inforName.TabIndex = 0;
+      this.inforName.Text = "名称：";
+      // 
+      // selectPanel
+      // 
+      this.selectPanel.BackColor = System.Drawing.Color.MediumAquamarine;
+      this.selectPanel.Controls.Add(this.selectTwobtn);
+      this.selectPanel.Controls.Add(this.selectOnebtn);
+      this.selectPanel.Controls.Add(this.skillName);
+      this.selectPanel.Location = new System.Drawing.Point(787, 428);
+      this.selectPanel.Name = "selectPanel";
+      this.selectPanel.Size = new System.Drawing.Size(341, 196);
+      this.selectPanel.TabIndex = 27;
+      this.selectPanel.Visible = false;
+      // 
+      // selectTwobtn
+      // 
+      this.selectTwobtn.BackColor = System.Drawing.Color.MediumSeaGreen;
+      this.selectTwobtn.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.selectTwobtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.selectTwobtn.Location = new System.Drawing.Point(200, 82);
+      this.selectTwobtn.Name = "selectTwobtn";
+      this.selectTwobtn.Size = new System.Drawing.Size(124, 56);
+      this.selectTwobtn.TabIndex = 2;
+      this.selectTwobtn.Text = "角色2";
+      this.selectTwobtn.UseVisualStyleBackColor = false;
+      this.selectTwobtn.Click += new System.EventHandler(this.selectOnebtn_Click);
+      // 
+      // selectOnebtn
+      // 
+      this.selectOnebtn.BackColor = System.Drawing.Color.MediumSeaGreen;
+      this.selectOnebtn.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.selectOnebtn.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+      this.selectOnebtn.Location = new System.Drawing.Point(15, 82);
+      this.selectOnebtn.Name = "selectOnebtn";
+      this.selectOnebtn.Size = new System.Drawing.Size(124, 56);
+      this.selectOnebtn.TabIndex = 1;
+      this.selectOnebtn.Text = "角色1";
+      this.selectOnebtn.UseVisualStyleBackColor = false;
+      this.selectOnebtn.Click += new System.EventHandler(this.selectOnebtn_Click);
+      // 
+      // skillName
+      // 
+      this.skillName.Font = new System.Drawing.Font("宋体", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.skillName.Location = new System.Drawing.Point(15, 17);
+      this.skillName.Name = "skillName";
+      this.skillName.Size = new System.Drawing.Size(93, 27);
+      this.skillName.TabIndex = 0;
+      this.skillName.Text = "技能名";
+      this.skillName.Click += new System.EventHandler(this.skillName_Click);
+      // 
+      // countDownTimer
+      // 
+      this.countDownTimer.Enabled = true;
+      this.countDownTimer.Interval = 1000D;
+      this.countDownTimer.SynchronizingObject = this;
+      this.countDownTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.countDownTimer_Elapsed);
       // 
       // Form1
       // 
@@ -329,14 +491,14 @@
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Azure;
       this.ClientSize = new System.Drawing.Size(1138, 628);
-      this.Controls.Add(this.panel7);
-      this.Controls.Add(this.panel6);
-      this.Controls.Add(this.label3);
+      this.Controls.Add(this.selectPanel);
+      this.Controls.Add(this.InforPanel);
+      this.Controls.Add(this.countDownlbl);
       this.Controls.Add(this.panel5);
       this.Controls.Add(this.label2);
       this.Controls.Add(this.label1);
       this.Controls.Add(this.monsterTwoNamelbl);
-      this.Controls.Add(this.monsterHPlbl);
+      this.Controls.Add(this.monsterTwoHPlbl);
       this.Controls.Add(this.label10);
       this.Controls.Add(this.panel4);
       this.Controls.Add(this.monsterOneNamelbl);
@@ -351,8 +513,8 @@
       this.Controls.Add(this.heroOneHPlbl);
       this.Controls.Add(this.lable1);
       this.Controls.Add(this.panel1);
+      this.Location = new System.Drawing.Point(15, 15);
       this.Name = "Form1";
-      this.Text = "Form1";
       this.panel1.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize) (this.heroOnePic)).EndInit();
       this.panel2.ResumeLayout(false);
@@ -362,14 +524,45 @@
       this.panel4.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize) (this.monsterTwoPic)).EndInit();
       this.panel5.ResumeLayout(false);
+      this.InforPanel.ResumeLayout(false);
+      this.selectPanel.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize) (this.countDownTimer)).EndInit();
       this.ResumeLayout(false);
     }
 
-    private System.Windows.Forms.Panel panel7;
-
-    private System.Windows.Forms.Panel panel6;
+    private System.Windows.Forms.Label damageTextlbl;
 
     private System.Windows.Forms.Label label3;
+
+    private System.Windows.Forms.Label monsterTwoHPlbl;
+
+    private System.Windows.Forms.Button selectOnebtn;
+
+    private System.Windows.Forms.Panel selectPanel;
+    private System.Windows.Forms.Label skillName;
+    private System.Windows.Forms.Button selectTwobtn;
+
+    private System.Windows.Forms.Label inforSpeed;
+
+    private System.Windows.Forms.Label whoNowRoundActinglbl;
+
+    private System.Timers.Timer countDownTimer;
+
+    private System.Windows.Forms.Label inforLucky;
+
+    private System.Windows.Forms.Label inforAc;
+    private System.Windows.Forms.Label inforHP;
+    private System.Windows.Forms.Label inforWeapon;
+
+    private System.Windows.Forms.Label inforName;
+    private System.Windows.Forms.Label inforAtk;
+    private System.Windows.Forms.Label label5;
+
+    private System.Windows.Forms.Panel panel7;
+
+    private System.Windows.Forms.Panel InforPanel;
+
+    private System.Windows.Forms.Label countDownlbl;
 
     private System.Windows.Forms.Button skillOnebtn;
 
@@ -412,6 +605,13 @@
     private System.Windows.Forms.Panel panel3;
     private System.Windows.Forms.Panel panel4;
 
+    private Hero heroOne;
+    private Hero heroTwo;
+    private Monster monsterOne;
+    private Monster monsterTwo;
+
+    private Dictionary<string, NPC> dic = new Dictionary<string, NPC>();
+    private List<NPC> _list = new List<NPC>();
 
     #endregion
   }

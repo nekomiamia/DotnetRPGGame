@@ -1,13 +1,13 @@
 namespace DotnetRPGGame.Weapon
 {
-    public class HolySword : Weapon
+    public class HolySword : Weapons
     {
-        HolySword()
+        public HolySword()
         {
+            this.WeaponName = "圣狗剑";
             this.WeaponType = WeaponTypes.Attack;
-            this.WeaponAtk = 20;
+            this.WeaponAtk = 25;
             this.WeaponAc = 0;
-            this.WeaponHp = 40;
             this.Lucky = 50;
         }
     }
