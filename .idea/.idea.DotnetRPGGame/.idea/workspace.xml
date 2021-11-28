@@ -4,7 +4,19 @@
     <projectFile>DotnetRPGGame/DotnetRPGGame.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="" />
+    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Player/Hero.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Player/SeaDoge.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Weapon/HolySword.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Weapon/Weapon.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Weapon/WeaponTypes.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.resx" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +24,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -65,15 +78,31 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1638010048928</updated>
-      <workItem from="1638010053360" duration="1337000" />
+      <workItem from="1638010053360" duration="4770000" />
+      <workItem from="1638023176793" duration="7378000" />
     </task>
+    <task id="LOCAL-00001" summary="空白">
+      <created>1638011525584</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1638011525584</updated>
+    </task>
+    <task id="LOCAL-00002" summary="空白">
+      <created>1638011561468</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1638011561468</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
-  <component name="UnityProjectConfiguration" hasMinimizedUI="null" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="NUnit" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -85,8 +114,11 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="空白" />
+    <option name="LAST_COMMIT_MESSAGE" value="空白" />
   </component>
 </project>
