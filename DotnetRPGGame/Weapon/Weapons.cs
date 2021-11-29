@@ -1,5 +1,8 @@
+using System;
+
 namespace DotnetRPGGame.Weapon
 {
+    [Serializable]
     public class Weapons
     {
         private WeaponTypes weaponType;

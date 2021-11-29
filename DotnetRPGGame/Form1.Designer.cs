@@ -49,6 +49,8 @@ namespace DotnetRPGGame
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
       this.panel5 = new System.Windows.Forms.Panel();
+      this.readbtn = new System.Windows.Forms.Button();
+      this.savebtn = new System.Windows.Forms.Button();
       this.whoNowRoundActinglbl = new System.Windows.Forms.Label();
       this.skillOnebtn = new System.Windows.Forms.Button();
       this.roundNumlbl = new System.Windows.Forms.Label();
@@ -97,6 +99,7 @@ namespace DotnetRPGGame
       this.heroOneHPlbl.Name = "heroOneHPlbl";
       this.heroOneHPlbl.Size = new System.Drawing.Size(173, 12);
       this.heroOneHPlbl.TabIndex = 2;
+      this.heroOneHPlbl.Resize += new System.EventHandler(this.heroOneHPlbl_Resize);
       // 
       // heroOneNamelbl
       // 
@@ -240,6 +243,8 @@ namespace DotnetRPGGame
       // panel5
       // 
       this.panel5.BackColor = System.Drawing.Color.MediumTurquoise;
+      this.panel5.Controls.Add(this.readbtn);
+      this.panel5.Controls.Add(this.savebtn);
       this.panel5.Controls.Add(this.whoNowRoundActinglbl);
       this.panel5.Controls.Add(this.skillOnebtn);
       this.panel5.Controls.Add(this.roundNumlbl);
@@ -247,6 +252,32 @@ namespace DotnetRPGGame
       this.panel5.Name = "panel5";
       this.panel5.Size = new System.Drawing.Size(776, 196);
       this.panel5.TabIndex = 24;
+      // 
+      // readbtn
+      // 
+      this.readbtn.BackColor = System.Drawing.Color.DarkCyan;
+      this.readbtn.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.readbtn.ForeColor = System.Drawing.SystemColors.Control;
+      this.readbtn.Location = new System.Drawing.Point(597, 122);
+      this.readbtn.Name = "readbtn";
+      this.readbtn.Size = new System.Drawing.Size(124, 51);
+      this.readbtn.TabIndex = 4;
+      this.readbtn.Text = "读取进度";
+      this.readbtn.UseVisualStyleBackColor = false;
+      this.readbtn.Click += new System.EventHandler(this.readbtn_Click);
+      // 
+      // savebtn
+      // 
+      this.savebtn.BackColor = System.Drawing.Color.DarkCyan;
+      this.savebtn.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
+      this.savebtn.ForeColor = System.Drawing.SystemColors.Control;
+      this.savebtn.Location = new System.Drawing.Point(597, 38);
+      this.savebtn.Name = "savebtn";
+      this.savebtn.Size = new System.Drawing.Size(124, 51);
+      this.savebtn.TabIndex = 3;
+      this.savebtn.Text = "保存进度";
+      this.savebtn.UseVisualStyleBackColor = false;
+      this.savebtn.Click += new System.EventHandler(this.savebtn_Click);
       // 
       // whoNowRoundActinglbl
       // 
@@ -486,6 +517,10 @@ namespace DotnetRPGGame
       ((System.ComponentModel.ISupportInitialize) (this.heroOnePic)).EndInit();
       this.ResumeLayout(false);
     }
+
+    private System.Windows.Forms.Button readbtn;
+
+    private System.Windows.Forms.Button savebtn;
 
     private System.Timers.Timer charMoveTimer;
 

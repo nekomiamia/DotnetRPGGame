@@ -4,20 +4,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Timers;
 using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DotnetRPGGame.Player;
+using DotnetRPGGame.SaveFloder;
 
 namespace DotnetRPGGame
 {
     public partial class Form1 : Form
     {
-
-        private int maxiCountDownNumber = 10;
+        GameSaveData gamesavedata;
+        private int maxiCountDownNumber = 30;
         private int roundNumber = 0;
         private int ackNumber = 0;
         private int charNumber = 4;
@@ -29,22 +32,37 @@ namespace DotnetRPGGame
 
         private void InitializeGame()
         {
+            roundNumber = 0;
+            ackNumber = 0;
             this.countDownlbl.Text = maxiCountDownNumber.ToString();
             InitializeCharacters();//初始化界面
             UpdateInformation();//初始化信息
             UpdateRoundNumber();//更新回合数
+            UpdateHealthBar();//更新血条
+            InitializePoint();//更新图片位置
         }
 
+        private void InitializePoint()
+        {
+            heroOnePic.Location = new Point(26,77);
+            heroTwoPic.Location = new Point(26,233);
+            monsterOnePic.Location = new Point(432,77);
+            monsterTwoPic.Location = new Point(432,233);
+        }
+        
+        
         private void InitializeCharacters()
         {
             this.heroOne = new SeaDoge(this.heroOnePic.Location,this.heroOnePic.Location);
             this.heroTwo = new SleepDoge(this.heroTwoPic.Location,this.heroTwoPic.Location);
             this.monsterOne = new FireDragon(this.monsterOnePic.Location,this.monsterOnePic.Location);
             this.monsterTwo = new GunDragon(this.monsterTwoPic.Location,this.monsterTwoPic.Location);
+            dic = new Dictionary<string, NPC>();
             dic.Add("heroOne",this.heroOne);
             dic.Add("heroTwo",this.heroTwo);
             dic.Add("monsterOne",this.monsterOne);
             dic.Add("monsterTwo",this.monsterTwo);
+            _list = new List<NPC>();
             _list.Add(this.heroOne);
             _list.Add(this.heroTwo);
             _list.Add(this.monsterOne);
@@ -64,10 +82,10 @@ namespace DotnetRPGGame
         
         private void UpdateInformation()
         {
-            this.heroOneNamelbl.Text = heroOne.Nickname + "         " + heroOne.Nowhp + "/" + heroOne.Maxhp;
-            this.heroTwoNamelbl.Text = heroTwo.Nickname + "         " + heroTwo.Nowhp + "/" + heroTwo.Maxhp;
-            this.monsterOneNamelbl.Text = monsterOne.Nickname + "         " + monsterOne.Nowhp + "/" + monsterOne.Maxhp;
-            this.monsterTwoNamelbl.Text = monsterTwo.Nickname + "         " + monsterTwo.Nowhp + "/" + monsterTwo.Maxhp;
+            this.heroOneNamelbl.Text = heroOne.Nickname + "     " + heroOne.Nowhp + "/" + heroOne.Maxhp;
+            this.heroTwoNamelbl.Text = heroTwo.Nickname + "     " + heroTwo.Nowhp + "/" + heroTwo.Maxhp;
+            this.monsterOneNamelbl.Text = monsterOne.Nickname + "     " + monsterOne.Nowhp + "/" + monsterOne.Maxhp;
+            this.monsterTwoNamelbl.Text = monsterTwo.Nickname + "     " + monsterTwo.Nowhp + "/" + monsterTwo.Maxhp;
         }
 
         private void UpdateRoundNumber()
@@ -205,21 +223,29 @@ namespace DotnetRPGGame
         private void MovePicture(NPC npc1, NPC npc2)
         {
             npc1.InAcking = true;
-            double hurtDamage = npc1.Hurt(npc2);
-            CreatDamageLable(npc1.Nickname,npc2.Nickname,skillName.Text,hurtDamage,true);
+            Tuple<bool,double> hurtDamageTuple = npc1.SuperAck(npc2);
+            Debug.WriteLine(npc2.Nickname);
+            Debug.WriteLine("海狗血量:"+heroOne.Nowhp);
+            CreatDamageLable(npc1.Nickname,npc2.Nickname,skillName.Text,hurtDamageTuple.Item2,true, hurtDamageTuple.Item1);
             ackNumber = roundNumber + 1;
             charMoveTimer.Start();
         }
         
-        private void CreatDamageLable(string thisNpcName,string targeNpcName,string skill,double damage,bool isHurt)
+        private void CreatDamageLable(string thisNpcName,string targeNpcName,string skill,double damage,bool isHurt,bool isSuper)
         {
-            string str1 = "造成了", str2 = "点伤害";
+            string str1 = "造成了", str2 = "点";
+            string str3 = "伤害", str4 = "";
             if (!isHurt)
             {
                 str1 = "恢复了";
-                str2 = "点血量";
+                str2 = "点";
             }
-            damageTextlbl.Text = thisNpcName + "使用" + skill +"对" + targeNpcName + str1 + damage + str2;
+
+            if (isSuper)
+            {
+                str4 = "暴击";
+            }
+            damageTextlbl.Text = thisNpcName + "使用" + skill +"对" + targeNpcName + str1 + damage + str2 + str4 + str3;
         }
 
         private void damageTimer1_Elapsed(object sender, ElapsedEventArgs e)
@@ -247,16 +273,19 @@ namespace DotnetRPGGame
             int x_step = (x_target - x_now) / 10, y_step = (y_target - y_now) / 10;
             int maxY = y_target + 100, minY = y_target - 10;
             int maxX = x_target + 100, minX = x_target - 20;
+            Debug.WriteLine(monsterOnePic.Location);
             if (npc.InAcking&&(x_pic < minX || x_pic > maxX))
             {
                 npcpic.Location = new Point(x_pic + x_step, y_pic + y_step);
             }
             else if(x_pic >= minX && x_pic <= maxX)
             {
-                
                 UpdateHealthBar();
                 UpdateInformation();
-                npcpic.Location = new Point(x_pic - x_step, y_pic - y_step);
+                if (npc.InAcking)
+                {
+                    npcpic.Location = new Point(x_pic - x_step, y_pic - y_step);
+                }
                 npc.InAcking = false;
             }else if (!npc.InAcking)
             {
@@ -277,6 +306,61 @@ namespace DotnetRPGGame
             }
            
             
+        }
+        
+        private void savebtn_Click(object sender, EventArgs e)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Create("saveFile.txt");
+            gamesavedata = new GameSaveData(roundNumber, ackNumber, monsterOne, monsterTwo, heroOne, heroTwo);
+            Console.WriteLine(gamesavedata);
+            bf.Serialize(file, gamesavedata);
+            file.Close();
+        }
+
+        private void readbtn_Click(object sender, EventArgs e)
+        {
+            BinaryFormatter bf = new BinaryFormatter();
+            FileStream file = File.Open("saveFile.txt", FileMode.Open);
+            gamesavedata = (GameSaveData)bf.Deserialize(file);
+            this.heroOne = gamesavedata.H1;
+            this.heroTwo = gamesavedata.H2;
+            this.monsterOne = gamesavedata.M1;
+            this.monsterTwo = gamesavedata.M2;
+            this.roundNumber = gamesavedata.SaveRoundNumber;
+            this.ackNumber = gamesavedata.SaveAckNumber;
+            file.Close();
+            dic = new Dictionary<string, NPC>();
+            dic.Add("heroOne",this.heroOne);
+            dic.Add("heroTwo",this.heroTwo);
+            dic.Add("monsterOne",this.monsterOne);
+            dic.Add("monsterTwo",this.monsterTwo);
+            _list = new List<NPC>();
+            _list.Add(this.heroOne);
+            _list.Add(this.heroTwo);
+            _list.Add(this.monsterOne);
+            _list.Add(this.monsterTwo);
+            ListSort(_list);
+            UpdateInformation();
+            UpdateHealthBar();
+            UpdateRoundNumber();
+        }
+
+        private void heroOneHPlbl_Resize(object sender, EventArgs e)
+        {
+            Label lbl = (Label) sender;
+            if (lbl.Width == 0)
+            {
+                MessageBox.Show("Game Over!");
+                NPC npc = _list[roundNumber % charNumber];
+                npc.InAcking = false;
+                charMoveTimer.Enabled = false;
+                InitializeGame();
+                Debug.WriteLine("init-----------------");
+                Debug.WriteLine(monsterOnePic.Location);
+                Debug.WriteLine(monsterOne.SelfCoordinate);
+                Debug.WriteLine("overInit-----------------");
+            }
         }
     }
 }

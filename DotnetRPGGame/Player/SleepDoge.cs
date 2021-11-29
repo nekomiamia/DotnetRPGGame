@@ -1,8 +1,11 @@
+using System;
 using System.Drawing;
 using DotnetRPGGame.Weapon;
 
 namespace DotnetRPGGame.Player
 {
+    [Serializable]
+
     public class SleepDoge : Hero
     {
         public SleepDoge(Point targetCor,Point selfCor)

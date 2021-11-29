@@ -1,8 +1,11 @@
+using System;
 using System.Drawing;
 using DotnetRPGGame.Weapon;
 
 namespace DotnetRPGGame.Player
-{
+{  
+    [Serializable]
+
     public class GunDragon : Monster
     {
         public GunDragon(Point targetCor,Point selfCor)

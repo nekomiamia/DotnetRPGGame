@@ -1,12 +1,15 @@
 using System;
 using System.Diagnostics;
 using System.Drawing;
+using DotnetRPGGame.InterFaceFolder;
 using DotnetRPGGame.Weapon;
 
 namespace DotnetRPGGame.Player
 {
-    public class NPC : IComparable<NPC>
+    [Serializable]
+    public class NPC : IComparable<NPC>, SuperACK
     {
+        
         private double atk; //攻击力
         private double ac; //护甲值
         private double maxhp; //最大血量
@@ -43,7 +46,28 @@ namespace DotnetRPGGame.Player
             Debug.WriteLine(this.nickname + " hurt "+ npc.nickname + " " + damage);
             return damage;
         }
-        
+
+        public Tuple<bool,double> SuperAck(NPC npc)
+        {
+            Random rd = new Random();
+            int randomNumber = rd.Next(0, 100);
+            Debug.WriteLine("暴击随机数："+ randomNumber);
+            double originAckNumber = Atk;
+            double originWeaponAckNumber = Weapon.WeaponAtk;
+            bool isSuper = false;
+            if (randomNumber>=0&&randomNumber<=Weapon.Lucky)
+            {
+                isSuper = true;
+                Atk = 1.5 * Atk;
+                Weapon.WeaponAtk = 1.5 * Weapon.WeaponAtk;
+            }
+            double hurtDamage = this.Hurt(npc);
+            Atk = originAckNumber;
+            Weapon.WeaponAtk = originWeaponAckNumber;
+            Tuple<bool, double> tuple = new Tuple<bool, double>(isSuper, hurtDamage);
+            return tuple;
+        }
+
         public void Back()
         {
             TargetCoordinate = SelfCoordinate;

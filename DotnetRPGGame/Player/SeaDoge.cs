@@ -1,7 +1,10 @@
+using System;
 using DotnetRPGGame.Weapon;
 using System.Drawing;
 namespace DotnetRPGGame.Player
 {
+    [Serializable]
+
     public class SeaDoge : Hero
     {
         public SeaDoge(Point targetCor,Point selfCor)
