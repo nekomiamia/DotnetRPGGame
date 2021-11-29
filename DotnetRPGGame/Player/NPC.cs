@@ -16,7 +16,14 @@ namespace DotnetRPGGame.Player
         private Point selfCoordinate; //自己坐标
         private Point targetCoordinate; //目标坐标
         private Weapons weapon;
-        
+        private bool inAcking;//是否在攻击中
+
+        public bool InAcking
+        {
+            get => inAcking;
+            set => inAcking = value;
+        }
+
         public int CompareTo(NPC npc)
         {
             if (this.Speed > npc.Speed)

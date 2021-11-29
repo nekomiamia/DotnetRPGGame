@@ -31,25 +31,20 @@ namespace DotnetRPGGame
     /// </summary>
     private void InitializeComponent()
     {
-      this.panel1 = new System.Windows.Forms.Panel();
-      this.heroOnePic = new System.Windows.Forms.PictureBox();
       this.lable1 = new System.Windows.Forms.Label();
       this.heroOneHPlbl = new System.Windows.Forms.Label();
       this.heroOneNamelbl = new System.Windows.Forms.Label();
       this.heroTwoNamelbl = new System.Windows.Forms.Label();
       this.heroTwoHPlbl = new System.Windows.Forms.Label();
       this.label4 = new System.Windows.Forms.Label();
-      this.panel2 = new System.Windows.Forms.Panel();
       this.heroTwoPic = new System.Windows.Forms.PictureBox();
       this.monsterOneNamelbl = new System.Windows.Forms.Label();
       this.monsterOneHPlbl = new System.Windows.Forms.Label();
       this.label7 = new System.Windows.Forms.Label();
-      this.panel3 = new System.Windows.Forms.Panel();
       this.monsterOnePic = new System.Windows.Forms.PictureBox();
       this.monsterTwoNamelbl = new System.Windows.Forms.Label();
       this.monsterTwoHPlbl = new System.Windows.Forms.Label();
       this.label10 = new System.Windows.Forms.Label();
-      this.panel4 = new System.Windows.Forms.Panel();
       this.monsterTwoPic = new System.Windows.Forms.PictureBox();
       this.label1 = new System.Windows.Forms.Label();
       this.label2 = new System.Windows.Forms.Label();
@@ -72,38 +67,18 @@ namespace DotnetRPGGame
       this.selectOnebtn = new System.Windows.Forms.Button();
       this.skillName = new System.Windows.Forms.Label();
       this.countDownTimer = new System.Timers.Timer();
-      this.panel1.SuspendLayout();
-      ((System.ComponentModel.ISupportInitialize) (this.heroOnePic)).BeginInit();
-      this.panel2.SuspendLayout();
+      this.charMoveTimer = new System.Timers.Timer();
+      this.heroOnePic = new System.Windows.Forms.PictureBox();
       ((System.ComponentModel.ISupportInitialize) (this.heroTwoPic)).BeginInit();
-      this.panel3.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize) (this.monsterOnePic)).BeginInit();
-      this.panel4.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize) (this.monsterTwoPic)).BeginInit();
       this.panel5.SuspendLayout();
       this.InforPanel.SuspendLayout();
       this.selectPanel.SuspendLayout();
       ((System.ComponentModel.ISupportInitialize) (this.countDownTimer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize) (this.charMoveTimer)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize) (this.heroOnePic)).BeginInit();
       this.SuspendLayout();
-      // 
-      // panel1
-      // 
-      this.panel1.Controls.Add(this.heroOnePic);
-      this.panel1.Location = new System.Drawing.Point(34, 96);
-      this.panel1.Name = "panel1";
-      this.panel1.Size = new System.Drawing.Size(173, 131);
-      this.panel1.TabIndex = 0;
-      // 
-      // heroOnePic
-      // 
-      this.heroOnePic.Image = global::DotnetRPGGame.Properties.Resources.狗;
-      this.heroOnePic.Location = new System.Drawing.Point(0, 0);
-      this.heroOnePic.Name = "heroOnePic";
-      this.heroOnePic.Size = new System.Drawing.Size(173, 131);
-      this.heroOnePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-      this.heroOnePic.TabIndex = 2;
-      this.heroOnePic.TabStop = false;
-      this.heroOnePic.MouseEnter += new System.EventHandler(this.heroOnePic_MouseEnter);
       // 
       // lable1
       // 
@@ -157,18 +132,10 @@ namespace DotnetRPGGame
       this.label4.Size = new System.Drawing.Size(173, 12);
       this.label4.TabIndex = 10;
       // 
-      // panel2
-      // 
-      this.panel2.Controls.Add(this.heroTwoPic);
-      this.panel2.Location = new System.Drawing.Point(34, 290);
-      this.panel2.Name = "panel2";
-      this.panel2.Size = new System.Drawing.Size(173, 131);
-      this.panel2.TabIndex = 11;
-      // 
       // heroTwoPic
       // 
       this.heroTwoPic.Image = global::DotnetRPGGame.Properties.Resources.困狗;
-      this.heroTwoPic.Location = new System.Drawing.Point(0, 0);
+      this.heroTwoPic.Location = new System.Drawing.Point(34, 291);
       this.heroTwoPic.Name = "heroTwoPic";
       this.heroTwoPic.Size = new System.Drawing.Size(173, 131);
       this.heroTwoPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -202,18 +169,10 @@ namespace DotnetRPGGame
       this.label7.Size = new System.Drawing.Size(173, 12);
       this.label7.TabIndex = 14;
       // 
-      // panel3
-      // 
-      this.panel3.Controls.Add(this.monsterOnePic);
-      this.panel3.Location = new System.Drawing.Point(576, 96);
-      this.panel3.Name = "panel3";
-      this.panel3.Size = new System.Drawing.Size(173, 131);
-      this.panel3.TabIndex = 15;
-      // 
       // monsterOnePic
       // 
       this.monsterOnePic.Image = global::DotnetRPGGame.Properties.Resources.喷火龙3;
-      this.monsterOnePic.Location = new System.Drawing.Point(0, 0);
+      this.monsterOnePic.Location = new System.Drawing.Point(576, 96);
       this.monsterOnePic.Name = "monsterOnePic";
       this.monsterOnePic.Size = new System.Drawing.Size(173, 131);
       this.monsterOnePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -247,18 +206,10 @@ namespace DotnetRPGGame
       this.label10.Size = new System.Drawing.Size(173, 12);
       this.label10.TabIndex = 18;
       // 
-      // panel4
-      // 
-      this.panel4.Controls.Add(this.monsterTwoPic);
-      this.panel4.Location = new System.Drawing.Point(576, 290);
-      this.panel4.Name = "panel4";
-      this.panel4.Size = new System.Drawing.Size(173, 131);
-      this.panel4.TabIndex = 19;
-      // 
       // monsterTwoPic
       // 
       this.monsterTwoPic.Image = global::DotnetRPGGame.Properties.Resources.时代变了_大人;
-      this.monsterTwoPic.Location = new System.Drawing.Point(0, 0);
+      this.monsterTwoPic.Location = new System.Drawing.Point(576, 291);
       this.monsterTwoPic.Name = "monsterTwoPic";
       this.monsterTwoPic.Size = new System.Drawing.Size(173, 131);
       this.monsterTwoPic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -292,7 +243,7 @@ namespace DotnetRPGGame
       this.panel5.Controls.Add(this.whoNowRoundActinglbl);
       this.panel5.Controls.Add(this.skillOnebtn);
       this.panel5.Controls.Add(this.roundNumlbl);
-      this.panel5.Location = new System.Drawing.Point(5, 428);
+      this.panel5.Location = new System.Drawing.Point(5, 473);
       this.panel5.Name = "panel5";
       this.panel5.Size = new System.Drawing.Size(776, 196);
       this.panel5.TabIndex = 24;
@@ -353,7 +304,7 @@ namespace DotnetRPGGame
       this.InforPanel.Controls.Add(this.inforName);
       this.InforPanel.Location = new System.Drawing.Point(787, 12);
       this.InforPanel.Name = "InforPanel";
-      this.InforPanel.Size = new System.Drawing.Size(344, 409);
+      this.InforPanel.Size = new System.Drawing.Size(344, 455);
       this.InforPanel.TabIndex = 26;
       // 
       // damageTextlbl
@@ -362,7 +313,7 @@ namespace DotnetRPGGame
       this.damageTextlbl.Font = new System.Drawing.Font("宋体", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (134)));
       this.damageTextlbl.Location = new System.Drawing.Point(7, 348);
       this.damageTextlbl.Name = "damageTextlbl";
-      this.damageTextlbl.Size = new System.Drawing.Size(332, 54);
+      this.damageTextlbl.Size = new System.Drawing.Size(332, 96);
       this.damageTextlbl.TabIndex = 7;
       this.damageTextlbl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
       // 
@@ -373,7 +324,6 @@ namespace DotnetRPGGame
       this.inforSpeed.Name = "inforSpeed";
       this.inforSpeed.Size = new System.Drawing.Size(309, 28);
       this.inforSpeed.TabIndex = 6;
-      this.inforSpeed.Text = "速度：";
       // 
       // inforLucky
       // 
@@ -382,7 +332,6 @@ namespace DotnetRPGGame
       this.inforLucky.Name = "inforLucky";
       this.inforLucky.Size = new System.Drawing.Size(309, 28);
       this.inforLucky.TabIndex = 5;
-      this.inforLucky.Text = "暴击率：";
       // 
       // inforWeapon
       // 
@@ -391,7 +340,6 @@ namespace DotnetRPGGame
       this.inforWeapon.Name = "inforWeapon";
       this.inforWeapon.Size = new System.Drawing.Size(309, 28);
       this.inforWeapon.TabIndex = 4;
-      this.inforWeapon.Text = "武器：";
       // 
       // inforHP
       // 
@@ -400,7 +348,6 @@ namespace DotnetRPGGame
       this.inforHP.Name = "inforHP";
       this.inforHP.Size = new System.Drawing.Size(309, 28);
       this.inforHP.TabIndex = 3;
-      this.inforHP.Text = "生命值：";
       this.inforHP.Click += new System.EventHandler(this.inforHP_Click);
       // 
       // inforAc
@@ -410,7 +357,6 @@ namespace DotnetRPGGame
       this.inforAc.Name = "inforAc";
       this.inforAc.Size = new System.Drawing.Size(309, 28);
       this.inforAc.TabIndex = 2;
-      this.inforAc.Text = "护甲值：";
       // 
       // inforAtk
       // 
@@ -419,7 +365,6 @@ namespace DotnetRPGGame
       this.inforAtk.Name = "inforAtk";
       this.inforAtk.Size = new System.Drawing.Size(309, 28);
       this.inforAtk.TabIndex = 1;
-      this.inforAtk.Text = "攻击力：";
       // 
       // inforName
       // 
@@ -428,7 +373,6 @@ namespace DotnetRPGGame
       this.inforName.Name = "inforName";
       this.inforName.Size = new System.Drawing.Size(309, 28);
       this.inforName.TabIndex = 0;
-      this.inforName.Text = "名称：";
       // 
       // selectPanel
       // 
@@ -436,9 +380,9 @@ namespace DotnetRPGGame
       this.selectPanel.Controls.Add(this.selectTwobtn);
       this.selectPanel.Controls.Add(this.selectOnebtn);
       this.selectPanel.Controls.Add(this.skillName);
-      this.selectPanel.Location = new System.Drawing.Point(787, 428);
+      this.selectPanel.Location = new System.Drawing.Point(787, 473);
       this.selectPanel.Name = "selectPanel";
-      this.selectPanel.Size = new System.Drawing.Size(341, 196);
+      this.selectPanel.Size = new System.Drawing.Size(344, 196);
       this.selectPanel.TabIndex = 27;
       this.selectPanel.Visible = false;
       // 
@@ -475,7 +419,6 @@ namespace DotnetRPGGame
       this.skillName.Name = "skillName";
       this.skillName.Size = new System.Drawing.Size(93, 27);
       this.skillName.TabIndex = 0;
-      this.skillName.Text = "技能名";
       this.skillName.Click += new System.EventHandler(this.skillName_Click);
       // 
       // countDownTimer
@@ -485,12 +428,33 @@ namespace DotnetRPGGame
       this.countDownTimer.SynchronizingObject = this;
       this.countDownTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.countDownTimer_Elapsed);
       // 
+      // charMoveTimer
+      // 
+      this.charMoveTimer.Interval = 50D;
+      this.charMoveTimer.SynchronizingObject = this;
+      this.charMoveTimer.Elapsed += new System.Timers.ElapsedEventHandler(this.charMoveTimer_Elapsed);
+      // 
+      // heroOnePic
+      // 
+      this.heroOnePic.Image = global::DotnetRPGGame.Properties.Resources.狗;
+      this.heroOnePic.Location = new System.Drawing.Point(34, 96);
+      this.heroOnePic.Name = "heroOnePic";
+      this.heroOnePic.Size = new System.Drawing.Size(173, 131);
+      this.heroOnePic.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+      this.heroOnePic.TabIndex = 2;
+      this.heroOnePic.TabStop = false;
+      this.heroOnePic.MouseEnter += new System.EventHandler(this.heroOnePic_MouseEnter);
+      // 
       // Form1
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.BackColor = System.Drawing.Color.Azure;
-      this.ClientSize = new System.Drawing.Size(1138, 628);
+      this.ClientSize = new System.Drawing.Size(1138, 681);
+      this.Controls.Add(this.monsterTwoPic);
+      this.Controls.Add(this.monsterOnePic);
+      this.Controls.Add(this.heroTwoPic);
+      this.Controls.Add(this.heroOnePic);
       this.Controls.Add(this.selectPanel);
       this.Controls.Add(this.InforPanel);
       this.Controls.Add(this.countDownlbl);
@@ -500,35 +464,30 @@ namespace DotnetRPGGame
       this.Controls.Add(this.monsterTwoNamelbl);
       this.Controls.Add(this.monsterTwoHPlbl);
       this.Controls.Add(this.label10);
-      this.Controls.Add(this.panel4);
       this.Controls.Add(this.monsterOneNamelbl);
       this.Controls.Add(this.monsterOneHPlbl);
       this.Controls.Add(this.label7);
-      this.Controls.Add(this.panel3);
       this.Controls.Add(this.heroTwoNamelbl);
       this.Controls.Add(this.heroTwoHPlbl);
       this.Controls.Add(this.label4);
-      this.Controls.Add(this.panel2);
       this.Controls.Add(this.heroOneNamelbl);
       this.Controls.Add(this.heroOneHPlbl);
       this.Controls.Add(this.lable1);
-      this.Controls.Add(this.panel1);
       this.Location = new System.Drawing.Point(15, 15);
       this.Name = "Form1";
-      this.panel1.ResumeLayout(false);
-      ((System.ComponentModel.ISupportInitialize) (this.heroOnePic)).EndInit();
-      this.panel2.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize) (this.heroTwoPic)).EndInit();
-      this.panel3.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize) (this.monsterOnePic)).EndInit();
-      this.panel4.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize) (this.monsterTwoPic)).EndInit();
       this.panel5.ResumeLayout(false);
       this.InforPanel.ResumeLayout(false);
       this.selectPanel.ResumeLayout(false);
       ((System.ComponentModel.ISupportInitialize) (this.countDownTimer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize) (this.charMoveTimer)).EndInit();
+      ((System.ComponentModel.ISupportInitialize) (this.heroOnePic)).EndInit();
       this.ResumeLayout(false);
     }
+
+    private System.Timers.Timer charMoveTimer;
 
     private System.Windows.Forms.Label damageTextlbl;
 
@@ -599,11 +558,6 @@ namespace DotnetRPGGame
     private System.Windows.Forms.PictureBox heroOnePic;
 
     private System.Windows.Forms.Label monsterHPlbl;
-
-    private System.Windows.Forms.Panel panel1;
-    private System.Windows.Forms.Panel panel2;
-    private System.Windows.Forms.Panel panel3;
-    private System.Windows.Forms.Panel panel4;
 
     private Hero heroOne;
     private Hero heroTwo;

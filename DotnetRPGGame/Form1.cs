@@ -19,6 +19,7 @@ namespace DotnetRPGGame
 
         private int maxiCountDownNumber = 10;
         private int roundNumber = 0;
+        private int ackNumber = 0;
         private int charNumber = 4;
         public Form1()
         {
@@ -77,14 +78,12 @@ namespace DotnetRPGGame
 
         private void UpdateHealthBar()
         {
-            Debug.WriteLine(label1.Width);
-            Debug.WriteLine(heroOneHPlbl.Width);
-            Debug.WriteLine("↓");
+            
             heroOneHPlbl.Width = (int) (130 * (heroOne.Nowhp / heroOne.Maxhp));
             heroTwoHPlbl.Width = (int) (130 * (heroTwo.Nowhp / heroTwo.Maxhp));
             monsterOneHPlbl.Width = (int) (130 * (monsterOne.Nowhp / monsterOne.Maxhp));
             monsterTwoHPlbl.Width = (int) (130 * (monsterTwo.Nowhp / monsterTwo.Maxhp));
-            Debug.WriteLine(heroOneHPlbl.Width);
+
         }
         
         private void label1_Click(object sender, EventArgs e)
@@ -134,6 +133,8 @@ namespace DotnetRPGGame
             {
                 countDownlbl.Text = maxiCountDownNumber.ToString();
                 roundNumber++;
+                ackNumber++;
+                selectPanel.Visible = false;
                 UpdateRoundNumber();
             }
             else
@@ -146,23 +147,27 @@ namespace DotnetRPGGame
 
         private void skillOnebtn_Click(object sender, EventArgs e)
         {
-            Button btn = (Button) sender;
-            skillName.Text = btn.Text;
-            NPC npc = _list[roundNumber % charNumber];
-            if (npc.GetType() == typeof(SeaDoge)||npc.GetType() == typeof(SleepDoge))
+            if (ackNumber == roundNumber)
             {
-                selectOnebtn.Text = monsterOne.Nickname;
-                selectTwobtn.Text = monsterTwo.Nickname;
+                Button btn = (Button) sender;
+                skillName.Text = btn.Text;
+                NPC npc = _list[roundNumber % charNumber];
+                if (npc.GetType() == typeof(SeaDoge)||npc.GetType() == typeof(SleepDoge))
+                {
+                    selectOnebtn.Text = monsterOne.Nickname;
+                    selectTwobtn.Text = monsterTwo.Nickname;
+                }
+                else
+                {
+                    selectOnebtn.Text = heroOne.Nickname;
+                    selectTwobtn.Text = heroTwo.Nickname;
+                }
+                selectPanel.Visible = true;
             }
-            else
-            {
-                selectOnebtn.Text = heroOne.Nickname;
-                selectTwobtn.Text = heroTwo.Nickname;
-            }
-            selectPanel.Visible = true;
-            
         }
 
+        
+        
         private void skillName_Click(object sender, EventArgs e)
         {
             throw new System.NotImplementedException();
@@ -170,6 +175,7 @@ namespace DotnetRPGGame
 
         private void selectOnebtn_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine(ackNumber+" "+roundNumber);
             Button btn = (Button) sender;
             string targetCharNickname = btn.Text;
             switch (btn.Text)
@@ -186,21 +192,25 @@ namespace DotnetRPGGame
                 case "睡狗" :
                     targetCharNickname = "heroTwo";
                     break;
-                    default: break;
+                default: break;
             }
             Debug.WriteLine(targetCharNickname);
             NPC targeNpc = dic[targetCharNickname];
             NPC thisNpc = _list[roundNumber % charNumber];
-            double hurtDamage = thisNpc.Hurt(targeNpc);
-            CreatDamageLable(thisNpc.Nickname,targeNpc.Nickname,skillName.Text,hurtDamage,true);
-            UpdateHealthBar();
-            UpdateInformation();
-            roundNumber++;
-            countDownlbl.Text = maxiCountDownNumber.ToString();
-            UpdateRoundNumber();
+            MovePicture(thisNpc,targeNpc);
             selectPanel.Visible = false;
+            
         }
 
+        private void MovePicture(NPC npc1, NPC npc2)
+        {
+            npc1.InAcking = true;
+            double hurtDamage = npc1.Hurt(npc2);
+            CreatDamageLable(npc1.Nickname,npc2.Nickname,skillName.Text,hurtDamage,true);
+            ackNumber = roundNumber + 1;
+            charMoveTimer.Start();
+        }
+        
         private void CreatDamageLable(string thisNpcName,string targeNpcName,string skill,double damage,bool isHurt)
         {
             string str1 = "造成了", str2 = "点伤害";
@@ -215,6 +225,58 @@ namespace DotnetRPGGame
         private void damageTimer1_Elapsed(object sender, ElapsedEventArgs e)
         {
             throw new System.NotImplementedException();
+        }
+
+        private void charMoveTimer_Elapsed(object sender, ElapsedEventArgs e)
+        {
+            string picName = "";
+            foreach (string key in dic.Keys)
+            {
+                if (dic[key].Equals(_list[roundNumber%charNumber]))
+                {
+                    picName = key + "Pic";
+                    break;
+                }
+            }
+            
+            Control npcpic = Controls.Find(picName, true)[0];
+            NPC npc = _list[roundNumber % charNumber];
+            int x_now = npc.SelfCoordinate.X, y_now = npc.SelfCoordinate.Y;
+            int x_target = npc.TargetCoordinate.X, y_target = npc.TargetCoordinate.Y;
+            int x_pic = npcpic.Location.X, y_pic = npcpic.Location.Y;
+            int x_step = (x_target - x_now) / 10, y_step = (y_target - y_now) / 10;
+            int maxY = y_target + 100, minY = y_target - 10;
+            int maxX = x_target + 100, minX = x_target - 20;
+            if (npc.InAcking&&(x_pic < minX || x_pic > maxX))
+            {
+                npcpic.Location = new Point(x_pic + x_step, y_pic + y_step);
+            }
+            else if(x_pic >= minX && x_pic <= maxX)
+            {
+                
+                UpdateHealthBar();
+                UpdateInformation();
+                npcpic.Location = new Point(x_pic - x_step, y_pic - y_step);
+                npc.InAcking = false;
+            }else if (!npc.InAcking)
+            {
+                if (x_step>0 && x_pic > x_now)
+                {
+                    npcpic.Location = new Point(x_pic - x_step, y_pic - y_step);
+                }
+                else if (x_step < 0 && x_pic < x_now)
+                {
+                    npcpic.Location = new Point(x_pic - x_step, y_pic - y_step);
+                } else
+                {
+                    roundNumber++;
+                    countDownlbl.Text = maxiCountDownNumber.ToString();
+                    UpdateRoundNumber();
+                    charMoveTimer.Stop();
+                }
+            }
+           
+            
         }
     }
 }

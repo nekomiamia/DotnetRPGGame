@@ -4,18 +4,12 @@
     <projectFile>DotnetRPGGame/DotnetRPGGame.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Player/Hero.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Player/SeaDoge.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Weapon/HolySword.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Weapon/Weapon.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/Weapon/WeaponTypes.cs" afterDir="false" />
+    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Properties/Resources.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Player/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Player/NPC.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,6 +31,10 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="5eb14e39-43d7-485a-b124-6b40bd347fc2" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/99/dde12c6e/Control.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/6f/3a5853ab/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
   <component name="ProjectId" id="21Uydf9KBAVQfYq80G0Q5BQjlBM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -44,6 +42,8 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -79,7 +79,8 @@
       <option name="presentableId" value="Default" />
       <updated>1638010048928</updated>
       <workItem from="1638010053360" duration="4770000" />
-      <workItem from="1638023176793" duration="7378000" />
+      <workItem from="1638023176793" duration="39565000" />
+      <workItem from="1638151249941" duration="10431000" />
     </task>
     <task id="LOCAL-00001" summary="空白">
       <created>1638011525584</created>
@@ -95,7 +96,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638011561468</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="实现武器父类和子类圣剑类">
+      <created>1638067232356</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1638067232356</updated>
+    </task>
+    <task id="LOCAL-00004" summary="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。">
+      <created>1638109891140</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1638109891140</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -109,7 +124,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -119,6 +146,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="空白" />
-    <option name="LAST_COMMIT_MESSAGE" value="空白" />
+    <MESSAGE value="实现武器父类和子类圣剑类" />
+    <MESSAGE value="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。" />
   </component>
 </project>
