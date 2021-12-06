@@ -16,7 +16,9 @@ namespace DotnetRPGGame
     {
       Application.EnableVisualStyles();
       Application.SetCompatibleTextRenderingDefault(false);
-      Application.Run(new Form1());
+      DataBaseConnection.MySql mySql = new DataBaseConnection.MySql();
+      LoginForm loginForm = LoginForm.GetInstance();
+      Application.Run(loginForm);
     }
   }
 }

@@ -125,6 +125,7 @@ namespace DotnetRPGGame
       this.heroTwoHPlbl.Name = "heroTwoHPlbl";
       this.heroTwoHPlbl.Size = new System.Drawing.Size(173, 12);
       this.heroTwoHPlbl.TabIndex = 12;
+      this.heroTwoHPlbl.Resize += new System.EventHandler(this.heroOneHPlbl_Resize);
       // 
       // label4
       // 
@@ -162,6 +163,7 @@ namespace DotnetRPGGame
       this.monsterOneHPlbl.Name = "monsterOneHPlbl";
       this.monsterOneHPlbl.Size = new System.Drawing.Size(173, 12);
       this.monsterOneHPlbl.TabIndex = 16;
+      this.monsterOneHPlbl.Resize += new System.EventHandler(this.heroOneHPlbl_Resize);
       // 
       // label7
       // 
@@ -199,6 +201,7 @@ namespace DotnetRPGGame
       this.monsterTwoHPlbl.Name = "monsterTwoHPlbl";
       this.monsterTwoHPlbl.Size = new System.Drawing.Size(173, 12);
       this.monsterTwoHPlbl.TabIndex = 20;
+      this.monsterTwoHPlbl.Resize += new System.EventHandler(this.heroOneHPlbl_Resize);
       // 
       // label10
       // 
@@ -506,6 +509,7 @@ namespace DotnetRPGGame
       this.Controls.Add(this.lable1);
       this.Location = new System.Drawing.Point(15, 15);
       this.Name = "Form1";
+      this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);
       ((System.ComponentModel.ISupportInitialize) (this.heroTwoPic)).EndInit();
       ((System.ComponentModel.ISupportInitialize) (this.monsterOnePic)).EndInit();
       ((System.ComponentModel.ISupportInitialize) (this.monsterTwoPic)).EndInit();

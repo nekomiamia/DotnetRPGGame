@@ -29,5 +29,7 @@ namespace DotnetRPGGame.SaveFloder
             this.H1 = h1;
             this.H2 = h2;
         }
+        
+        
     }
 }

@@ -14,6 +14,9 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DotnetRPGGame.Player;
 using DotnetRPGGame.SaveFloder;
+using DotnetRPGGame.DataBaseConnection;
+using DotnetRPGGame.EventFolder;
+using MySql = DotnetRPGGame.DataBaseConnection.MySql;
 
 namespace DotnetRPGGame
 {
@@ -24,16 +27,27 @@ namespace DotnetRPGGame
         private int roundNumber = 0;
         private int ackNumber = 0;
         private int charNumber = 4;
+        private string username = "admin";
+
+        internal SendMessge _sendMessge = new SendMessge();
+        
         public Form1()
         {
             InitializeComponent();
             InitializeGame();
         }
 
+        private void InitializeData()
+        {
+            
+        }
+        
         private void InitializeGame()
         {
             roundNumber = 0;
             ackNumber = 0;
+            _sendMessge.PassIntToFrmMainEvent += new SendMessge.PassIntToFrmMainEventHandler(GetUsername);
+            this.Text = username;
             this.countDownlbl.Text = maxiCountDownNumber.ToString();
             InitializeCharacters();//初始化界面
             UpdateInformation();//初始化信息
@@ -79,6 +93,12 @@ namespace DotnetRPGGame
                 Debug.WriteLine(npc.Nickname+" "+npc.Speed);
             }
         }
+
+        public void GetUsername(string username)
+        {
+            this.username = username;
+            this.Text = username;
+        }
         
         private void UpdateInformation()
         {
@@ -114,7 +134,9 @@ namespace DotnetRPGGame
             throw new System.NotImplementedException();
         }
         
-
+     
+        
+        
         private void heroOnePic_MouseEnter(object sender, EventArgs e)
         {
             PictureBox pic = sender as PictureBox;
@@ -310,26 +332,27 @@ namespace DotnetRPGGame
         
         private void savebtn_Click(object sender, EventArgs e)
         {
-            BinaryFormatter bf = new BinaryFormatter();
+            /*BinaryFormatter bf = new BinaryFormatter();
             FileStream file = File.Create("saveFile.txt");
             gamesavedata = new GameSaveData(roundNumber, ackNumber, monsterOne, monsterTwo, heroOne, heroTwo);
             Console.WriteLine(gamesavedata);
             bf.Serialize(file, gamesavedata);
-            file.Close();
+            file.Close();*/
+            gamesavedata = new GameSaveData(roundNumber, ackNumber, monsterOne, monsterTwo, heroOne, heroTwo);
+            DataBaseConnection.MySql mySql = new DataBaseConnection.MySql();
+            mySql.SaveGameData(this.username,gamesavedata);
         }
 
         private void readbtn_Click(object sender, EventArgs e)
         {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open("saveFile.txt", FileMode.Open);
-            gamesavedata = (GameSaveData)bf.Deserialize(file);
+            DataBaseConnection.MySql mySql = new DataBaseConnection.MySql();
+            gamesavedata = mySql.ReadGameData(this.username);
             this.heroOne = gamesavedata.H1;
             this.heroTwo = gamesavedata.H2;
             this.monsterOne = gamesavedata.M1;
             this.monsterTwo = gamesavedata.M2;
             this.roundNumber = gamesavedata.SaveRoundNumber;
             this.ackNumber = gamesavedata.SaveAckNumber;
-            file.Close();
             dic = new Dictionary<string, NPC>();
             dic.Add("heroOne",this.heroOne);
             dic.Add("heroTwo",this.heroTwo);
@@ -361,6 +384,11 @@ namespace DotnetRPGGame
                 Debug.WriteLine(monsterOne.SelfCoordinate);
                 Debug.WriteLine("overInit-----------------");
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Environment.Exit(0);
         }
     }
 }

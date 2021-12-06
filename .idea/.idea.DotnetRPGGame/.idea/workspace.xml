@@ -4,12 +4,39 @@
     <projectFile>DotnetRPGGame/DotnetRPGGame.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。">
+    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/DataBaseConnection/MySql.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/EventFolder/SendMessge.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.resx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.resx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/packages.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameBLL/Class1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameBLL/RPGGameBLL.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL/Class1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL/RPGGameDAL.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestProject1/TestProject1.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestProject1/UnitTest1.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestProject2/TestProject2.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestProject2/UnitTest1.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame.sln" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.resx" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Player/NPC.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Player/NPC.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/SaveFloder/GameSaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/SaveFloder/GameSaveData.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,8 +59,20 @@
     <option name="defaultAccountId" value="5eb14e39-43d7-485a-b124-6b40bd347fc2" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/cc/0d6533ce/Int32.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/study/Rider/Rider-workspace/DotnetRPGGame/DotnetRPGGame/Player/Monster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/f4/fc620922/NativeWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/99/dde12c6e/Control.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/72/30b2e439/Form.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TestProject1/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/72/d6b37c0a/MessageBox.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10e45ee994e046b09b30eac4f9a3df5215ca00/48/998bdcc0/MySqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TestProject2/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/study/Rider/Rider-workspace/DotnetRPGGame/DotnetRPGGame/Player/Monster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/d0/42cf9b27/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/b2/75fc5b5b/ButtonBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/6f/3a5853ab/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/6c/7a5fc823/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="21Uydf9KBAVQfYq80G0Q5BQjlBM" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -42,6 +81,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
     <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
@@ -80,7 +120,9 @@
       <updated>1638010048928</updated>
       <workItem from="1638010053360" duration="4770000" />
       <workItem from="1638023176793" duration="39565000" />
-      <workItem from="1638151249941" duration="10431000" />
+      <workItem from="1638151249941" duration="42502000" />
+      <workItem from="1638420045088" duration="7347000" />
+      <workItem from="1638586640178" duration="23193000" />
     </task>
     <task id="LOCAL-00001" summary="空白">
       <created>1638011525584</created>
@@ -110,7 +152,21 @@
       <option name="project" value="LOCAL" />
       <updated>1638109891140</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="实现动画移动效果&#10;待实现：暴击接口，序列化存储">
+      <created>1638164463154</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1638164463154</updated>
+    </task>
+    <task id="LOCAL-00006" summary="实现到实验六为止的所有内容，重构完成。&#10;后续根据实验要求继续添加功能。&#10;to be continue">
+      <created>1638195193187</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1638195193187</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -148,6 +204,8 @@
     <MESSAGE value="空白" />
     <MESSAGE value="实现武器父类和子类圣剑类" />
     <MESSAGE value="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。" />
+    <MESSAGE value="实现动画移动效果&#10;待实现：暴击接口，序列化存储" />
+    <MESSAGE value="实现到实验六为止的所有内容，重构完成。&#10;后续根据实验要求继续添加功能。&#10;to be continue" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现到实验六为止的所有内容，重构完成。&#10;后续根据实验要求继续添加功能。&#10;to be continue" />
   </component>
 </project>

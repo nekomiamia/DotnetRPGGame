@@ -2,6 +2,10 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotnetRPGGame", "DotnetRPGGame\DotnetRPGGame.csproj", "{D33864D4-2430-4CD7-A895-194766BA3A6D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGGameBLL", "RPGGameBLL\RPGGameBLL.csproj", "{933705EA-9016-467F-AC3B-55A51D48472D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RPGGameDAL", "RPGGameDAL\RPGGameDAL.csproj", "{EEFC054C-7DC3-43AC-8FD4-A39D6F77D54D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +16,13 @@ Global
 		{D33864D4-2430-4CD7-A895-194766BA3A6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D33864D4-2430-4CD7-A895-194766BA3A6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D33864D4-2430-4CD7-A895-194766BA3A6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{933705EA-9016-467F-AC3B-55A51D48472D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{933705EA-9016-467F-AC3B-55A51D48472D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{933705EA-9016-467F-AC3B-55A51D48472D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{933705EA-9016-467F-AC3B-55A51D48472D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEFC054C-7DC3-43AC-8FD4-A39D6F77D54D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEFC054C-7DC3-43AC-8FD4-A39D6F77D54D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEFC054C-7DC3-43AC-8FD4-A39D6F77D54D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEFC054C-7DC3-43AC-8FD4-A39D6F77D54D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
