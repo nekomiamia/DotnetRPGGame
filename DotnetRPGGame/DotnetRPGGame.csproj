@@ -102,7 +102,6 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="DataBaseConnection\MySql.cs" />
         <Compile Include="EventFolder\SendMessge.cs" />
         <Compile Include="Form1.cs">
             <SubType>Form</SubType>
@@ -132,6 +131,7 @@
         <Compile Include="RegisterForm.Designer.cs">
           <DependentUpon>RegisterForm.cs</DependentUpon>
         </Compile>
+        <Compile Include="SaveFloder\ByteTurnGameSaveData.cs" />
         <Compile Include="SaveFloder\GameSaveData.cs" />
         <Compile Include="Weapon\DragonFire.cs" />
         <Compile Include="Weapon\DragonGun.cs" />
@@ -176,6 +176,16 @@
       <Content Include="Resources\困狗.jpg" />
       <Content Include="Resources\时代变了_大人.gif" />
       <Content Include="Resources\狗.jpg" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\RPGGameBLL\RPGGameBLL.csproj">
+        <Project>{0c86c489-2e98-425d-bebf-46d8cb0f1608}</Project>
+        <Name>RPGGameBLL</Name>
+      </ProjectReference>
+      <ProjectReference Include="..\RPGGameModel\RPGGameModel.csproj">
+        <Project>{df0d9a1f-9034-4bdd-9cef-69cebd6e2bb3}</Project>
+        <Name>RPGGameModel</Name>
+      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

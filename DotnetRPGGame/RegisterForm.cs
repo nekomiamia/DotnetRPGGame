@@ -1,11 +1,16 @@
 using System;
 using System.Windows.Forms;
-using MySql = DotnetRPGGame.DataBaseConnection.MySql;
+using RPGGameBLL;
+using RPGGameModel.DataBase;
+
 
 namespace DotnetRPGGame
 {
     public partial class RegisterForm : Form
     {
+        private user m_user = new user();
+        private UserAccess b_userAccess = new UserAccess();
+        
         public RegisterForm()
         {
             InitializeComponent();
@@ -20,10 +25,13 @@ namespace DotnetRPGGame
 
         private void registerBtn_Click(object sender, EventArgs e)
         {
-            DataBaseConnection.MySql mySql = new DataBaseConnection.MySql();
+
             string username = usernameTbx.Text;
             string password = passwordTbx.Text;
-            if (mySql.InsertData(username,password))
+            m_user.Username = username;
+            m_user.Password = password;
+            
+            if (b_userAccess.UserRegister(m_user))
             {
                 MessageBox.Show("注册成功!");
                 Form1 form1 = new Form1();
@@ -37,7 +45,6 @@ namespace DotnetRPGGame
                 usernameTbx.Text = "";
                 passwordTbx.Text = "";
             }
-            
         }
     }
 }

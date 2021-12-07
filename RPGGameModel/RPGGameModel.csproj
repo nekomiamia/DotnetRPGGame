@@ -4,11 +4,11 @@
     <PropertyGroup>
         <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
         <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-        <ProjectGuid>{0C86C489-2E98-425D-BEBF-46D8CB0F1608}</ProjectGuid>
+        <ProjectGuid>{DF0D9A1F-9034-4BDD-9CEF-69CEBD6E2BB3}</ProjectGuid>
         <OutputType>Library</OutputType>
         <AppDesignerFolder>Properties</AppDesignerFolder>
-        <RootNamespace>RPGGameBLL</RootNamespace>
-        <AssemblyName>RPGGameBLL</AssemblyName>
+        <RootNamespace>RPGGameModel</RootNamespace>
+        <AssemblyName>RPGGameModel</AssemblyName>
         <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
         <FileAlignment>512</FileAlignment>
     </PropertyGroup>
@@ -38,19 +38,9 @@
         <Reference Include="System.Xml" />
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="GameDataAccess.cs" />
+        <Compile Include="DataBase\gamedata.cs" />
+        <Compile Include="DataBase\user.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
-        <Compile Include="UserAccess.cs" />
-    </ItemGroup>
-    <ItemGroup>
-      <ProjectReference Include="..\RPGGameDAL\RPGGameDAL.csproj">
-        <Project>{794d658b-d49b-4e83-a2fa-bb26ef3c2a73}</Project>
-        <Name>RPGGameDAL</Name>
-      </ProjectReference>
-      <ProjectReference Include="..\RPGGameModel\RPGGameModel.csproj">
-        <Project>{df0d9a1f-9034-4bdd-9cef-69cebd6e2bb3}</Project>
-        <Name>RPGGameModel</Name>
-      </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

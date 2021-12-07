@@ -4,39 +4,35 @@
     <projectFile>DotnetRPGGame/DotnetRPGGame.csproj</projectFile>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/dataSources/6ea126d6-5496-403c-9119-7d8346cc162f/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/DataBaseConnection/MySql.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/EventFolder/SendMessge.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/packages.config" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPGGameBLL/Class1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPGGameBLL/RPGGameBLL.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPGGameDAL/Class1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RPGGameDAL/RPGGameDAL.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestProject1/TestProject1.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestProject1/UnitTest1.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestProject2/TestProject2.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestProject2/UnitTest1.cs" afterDir="false" />
+    <list default="true" id="024f060e-83db-40a4-afc4-6580d6239689" name="Changes" comment="实现数据库访问，登录注册，每个用户账号对应游戏数据&#10;待实现：三层结构">
+      <change afterPath="$PROJECT_DIR$/DotnetRPGGame/SaveFloder/ByteTurnGameSaveData.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameBLL/GameDataAccess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameBLL/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameBLL/UserAccess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameBLL1/RPGGameBLL1.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL/DBbase.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL/GameDataAccess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL/UserAccess.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL/packages.config" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameDAL1/RPGGameDAL1.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameModel/DataBase/gamedata.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameModel/DataBase/user.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameModel/Properties/AssemblyInfo.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameModel/RPGGameModel.csproj" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RPGGameModel1/RPGGameModel1.csproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.DotnetRPGGame/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame.sln" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame.sln" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/DataBaseConnection/MySql.cs" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/DotnetRPGGame.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Form1.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/LoginForm.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/DotnetRPGGame/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/SaveFloder/GameSaveData.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/SaveFloder/GameSaveData.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DotnetRPGGame/RegisterForm.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPGGameBLL/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPGGameBLL/RPGGameBLL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RPGGameBLL/RPGGameBLL.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPGGameDAL/Class1.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RPGGameDAL/RPGGameDAL.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/RPGGameDAL/RPGGameDAL.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,17 +57,22 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/cc/0d6533ce/Int32.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/study/Rider/Rider-workspace/DotnetRPGGame/DotnetRPGGame/Player/Monster.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RPGGameBLL/UserAccess.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/f4/fc620922/NativeWindow.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/99/dde12c6e/Control.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/72/30b2e439/Form.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/e0/1fb6e1b5/String.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestProject1/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/72/d6b37c0a/MessageBox.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/10e45ee994e046b09b30eac4f9a3df5215ca00/48/998bdcc0/MySqlCommand.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestProject2/UnitTest1.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="mock://D:/study/Rider/Rider-workspace/DotnetRPGGame/DotnetRPGGame/Player/Monster.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/d0/42cf9b27/Button.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RPGGameModel/DataBase/user.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/RPGGameModel/DataBase/gamedata.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/b2/75fc5b5b/ButtonBase.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/6f/3a5853ab/Dictionary`2.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c665564ae3b14cb0a7dc8ff61d357a9f5a4f20/2d/d74747b0/Application.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/fd824cfb55004855b9e6d51b008c90e4568778/6c/7a5fc823/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="21Uydf9KBAVQfYq80G0Q5BQjlBM" />
@@ -122,7 +123,7 @@
       <workItem from="1638023176793" duration="39565000" />
       <workItem from="1638151249941" duration="42502000" />
       <workItem from="1638420045088" duration="7347000" />
-      <workItem from="1638586640178" duration="23193000" />
+      <workItem from="1638586640178" duration="43229000" />
     </task>
     <task id="LOCAL-00001" summary="空白">
       <created>1638011525584</created>
@@ -166,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1638195193187</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="实现数据库访问，登录注册，每个用户账号对应游戏数据&#10;待实现：三层结构">
+      <created>1638787442240</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1638787442240</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -206,6 +214,39 @@
     <MESSAGE value="实现NPC基类，Hero和Monster继承NPC，Hero和Monster之下各有两个子类，同时实现了界面基本功能。&#10;待实现：动画效果，进度存取等。" />
     <MESSAGE value="实现动画移动效果&#10;待实现：暴击接口，序列化存储" />
     <MESSAGE value="实现到实验六为止的所有内容，重构完成。&#10;后续根据实验要求继续添加功能。&#10;to be continue" />
-    <option name="LAST_COMMIT_MESSAGE" value="实现到实验六为止的所有内容，重构完成。&#10;后续根据实验要求继续添加功能。&#10;to be continue" />
+    <MESSAGE value="实现数据库访问，登录注册，每个用户账号对应游戏数据&#10;待实现：三层结构" />
+    <option name="LAST_COMMIT_MESSAGE" value="实现数据库访问，登录注册，每个用户账号对应游戏数据&#10;待实现：三层结构" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/DotnetRPGGame/Form1.cs</url>
+          <line>342</line>
+          <properties documentPath="D:\study\Rider\Rider-workspace\DotnetRPGGame\DotnetRPGGame\Form1.cs" initialLine="343" containingFunctionPresentation="method 'savebtn_Click'">
+            <startOffsets>
+              <option value="12091" />
+            </startOffsets>
+            <endOffsets>
+              <option value="12135" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/RPGGameDAL/GameDataAccess.cs</url>
+          <line>35</line>
+          <properties documentPath="D:\study\Rider\Rider-workspace\DotnetRPGGame\RPGGameDAL\GameDataAccess.cs" initialLine="25" containingFunctionPresentation="method 'UpdateProgress'">
+            <startOffsets>
+              <option value="1341" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1373" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

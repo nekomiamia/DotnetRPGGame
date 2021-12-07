@@ -14,9 +14,10 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using DotnetRPGGame.Player;
 using DotnetRPGGame.SaveFloder;
-using DotnetRPGGame.DataBaseConnection;
+
 using DotnetRPGGame.EventFolder;
-using MySql = DotnetRPGGame.DataBaseConnection.MySql;
+using RPGGameBLL;
+using RPGGameModel.DataBase;
 
 namespace DotnetRPGGame
 {
@@ -28,8 +29,11 @@ namespace DotnetRPGGame
         private int ackNumber = 0;
         private int charNumber = 4;
         private string username = "admin";
-
+        private GameDataAccess _gameDataAccess = new GameDataAccess();
         internal SendMessge _sendMessge = new SendMessge();
+
+        private gamedata _gamedata;
+        
         
         public Form1()
         {
@@ -332,41 +336,54 @@ namespace DotnetRPGGame
         
         private void savebtn_Click(object sender, EventArgs e)
         {
-            /*BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Create("saveFile.txt");
             gamesavedata = new GameSaveData(roundNumber, ackNumber, monsterOne, monsterTwo, heroOne, heroTwo);
-            Console.WriteLine(gamesavedata);
-            bf.Serialize(file, gamesavedata);
-            file.Close();*/
-            gamesavedata = new GameSaveData(roundNumber, ackNumber, monsterOne, monsterTwo, heroOne, heroTwo);
-            DataBaseConnection.MySql mySql = new DataBaseConnection.MySql();
-            mySql.SaveGameData(this.username,gamesavedata);
+            _gamedata = new gamedata();
+            _gamedata.Username = this.username;
+            _gamedata.Data = new ByteTurnGameSaveData().GToByte(gamesavedata);
+            if (_gameDataAccess.SaveGamedata(_gamedata))
+            {
+                MessageBox.Show("存档成功!");
+            }
+            else
+            {
+                MessageBox.Show("存档失败!");
+            }
         }
 
         private void readbtn_Click(object sender, EventArgs e)
         {
-            DataBaseConnection.MySql mySql = new DataBaseConnection.MySql();
-            gamesavedata = mySql.ReadGameData(this.username);
-            this.heroOne = gamesavedata.H1;
-            this.heroTwo = gamesavedata.H2;
-            this.monsterOne = gamesavedata.M1;
-            this.monsterTwo = gamesavedata.M2;
-            this.roundNumber = gamesavedata.SaveRoundNumber;
-            this.ackNumber = gamesavedata.SaveAckNumber;
-            dic = new Dictionary<string, NPC>();
-            dic.Add("heroOne",this.heroOne);
-            dic.Add("heroTwo",this.heroTwo);
-            dic.Add("monsterOne",this.monsterOne);
-            dic.Add("monsterTwo",this.monsterTwo);
-            _list = new List<NPC>();
-            _list.Add(this.heroOne);
-            _list.Add(this.heroTwo);
-            _list.Add(this.monsterOne);
-            _list.Add(this.monsterTwo);
-            ListSort(_list);
-            UpdateInformation();
-            UpdateHealthBar();
-            UpdateRoundNumber();
+            _gamedata = new gamedata();
+            _gamedata.Username = this.username;
+            _gamedata = _gameDataAccess.ReadGamedata(_gamedata);
+            if (_gamedata==null)
+            {
+                MessageBox.Show("尚未拥有存档!");
+            }
+            else
+            {
+                gamesavedata = new ByteTurnGameSaveData().BToGameSaveData(_gamedata.Data);
+                MessageBox.Show("读档成功!");
+                this.heroOne = gamesavedata.H1;
+                this.heroTwo = gamesavedata.H2;
+                this.monsterOne = gamesavedata.M1;
+                this.monsterTwo = gamesavedata.M2;
+                this.roundNumber = gamesavedata.SaveRoundNumber;
+                this.ackNumber = gamesavedata.SaveAckNumber;
+                dic = new Dictionary<string, NPC>();
+                dic.Add("heroOne", this.heroOne);
+                dic.Add("heroTwo", this.heroTwo);
+                dic.Add("monsterOne", this.monsterOne);
+                dic.Add("monsterTwo", this.monsterTwo);
+                _list = new List<NPC>();
+                _list.Add(this.heroOne);
+                _list.Add(this.heroTwo);
+                _list.Add(this.monsterOne);
+                _list.Add(this.monsterTwo);
+                ListSort(_list);
+                UpdateInformation();
+                UpdateHealthBar();
+                UpdateRoundNumber();
+            }
         }
 
         private void heroOneHPlbl_Resize(object sender, EventArgs e)
